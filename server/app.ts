@@ -1,7 +1,8 @@
-import express from 'express';
+import express, { type Express } from 'express';
 
-const app = express();
+export const app: Express = express();
 
-app.listen(3000, () => {
-  console.log('Server listening on 3000');
+app.get('/hello', (req, res) => {
+  console.log('HI');
+  res.send('HI');
 });
