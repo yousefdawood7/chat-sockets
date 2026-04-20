@@ -1,8 +1,6 @@
-import express, { type Express } from 'express';
+import cors from 'cors';
+import express from 'express';
 
-export const app: Express = express();
+export const app = express();
 
-app.get('/hello', (req, res) => {
-  console.log('HI');
-  res.send('HI');
-});
+app.use(cors());
