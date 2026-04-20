@@ -104,19 +104,6 @@ function scrollToBottom() {
   });
 }
 
-function showEmptyState() {
-  const el = document.createElement('div');
-  el.className = 'empty-state';
-  el.id = 'emptyState';
-  el.innerHTML = `
-    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-    </svg>
-    <p>No messages yet.<br>Start the conversation!</p>
-  `;
-  chatMessages.appendChild(el);
-}
-
 function removeEmptyState() {
   const el = document.getElementById('emptyState');
   if (el) el.remove();
