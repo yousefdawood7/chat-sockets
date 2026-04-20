@@ -6,12 +6,9 @@ import {
   showTypingIndicator,
 } from './chat';
 
-// console.log(io);
-
-export const socket = io('ws://localhost:3000');
+export const socket = io(process.env.APP_URL ?? 'http://localhost:3000');
 
 let id;
-
 const handlingTypingIndicator = function () {
   clearTimeout(id);
   showTypingIndicator();
