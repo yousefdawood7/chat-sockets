@@ -1,5 +1,10 @@
 import { io } from 'socket.io-client';
-import { hideTypingIndicator, showTypingIndicator } from './chat';
+import {
+  addIncomingMessage,
+  appendMessage,
+  hideTypingIndicator,
+  showTypingIndicator,
+} from './chat';
 
 // console.log(io);
 
@@ -12,10 +17,12 @@ const handlingTypingIndicator = function () {
   showTypingIndicator();
 
   id = setTimeout(() => {
-    console.log('CALLED');
     hideTypingIndicator();
   }, 2500);
 };
+
+const handlingSendMessages = function () {};
+
 socket.on('connect', () => {});
 
 socket.on('server-typing', (data) => {
@@ -23,4 +30,15 @@ socket.on('server-typing', (data) => {
   // prettier-ignore
   if (data.id !== socket.id)
     handlingTypingIndicator();
+});
+
+socket.on('server-send', (data) => {
+  console.log(data === socket.id);
+  // prettier-ignore
+  if (data.id === socket.id)
+    appendMessage(data.message, 'sent')
+
+  // prettier-ignore
+  if (data.id !== socket.id)
+    addIncomingMessage(data.message);
 });

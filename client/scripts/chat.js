@@ -36,15 +36,17 @@ function handleSend() {
   const text = messageInput.value.trim();
   if (!text) return;
 
+  socket.emit('send', { id: socket.id, message: text });
+
   removeEmptyState();
-  appendMessage(text, 'sent');
   messageInput.value = '';
   messageInput.style.height = 'auto';
   sendBtn.disabled = true;
 
   scrollToBottom();
 }
-function addIncomingMessage(text) {
+
+export function addIncomingMessage(text) {
   removeEmptyState();
   hideTypingIndicator();
   appendMessage(text, 'received');
@@ -75,7 +77,7 @@ function setHeaderInfo(name, online) {
     : '<span class="status-dot" style="background:#888;box-shadow:none;animation:none"></span> Offline';
 }
 
-function appendMessage(text, type) {
+export function appendMessage(text, type) {
   const wrapper = document.createElement('div');
   wrapper.className = `message ${type}`;
 

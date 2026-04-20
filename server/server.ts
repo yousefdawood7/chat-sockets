@@ -17,6 +17,10 @@ io.on('connection', (socket) => {
   socket.on('typing', ({ id, isTyping }) => {
     io.emit('server-typing', { id, isTyping });
   });
+
+  socket.on('send', ({ id, message }) => {
+    io.emit('server-send', { id, message });
+  });
 });
 
 server.listen(3000, () => {
