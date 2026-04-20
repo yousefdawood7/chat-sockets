@@ -28,7 +28,6 @@ function handleKeyDown(e) {
   }
 }
 
-// ── Send Message ───────────────────────────────────────
 function handleSend() {
   const text = messageInput.value.trim();
   if (!text) return;
