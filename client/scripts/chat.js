@@ -61,7 +61,7 @@ export function showTypingIndicator() {
   scrollToBottom();
 }
 
-function hideTypingIndicator() {
+export function hideTypingIndicator() {
   if (typingEl) {
     typingEl.remove();
     typingEl = null;
