@@ -12,4 +12,4 @@ await esbuild.build({
   outdir: 'dist',
 });
 
-console.log('[esbuild] Built comments-service');
+console.log('[esbuild] Built Socket Server');

@@ -23,14 +23,12 @@ const handlingSendMessages = function () {};
 socket.on('connect', () => {});
 
 socket.on('server-typing', (data) => {
-  console.log(data === socket.id);
   // prettier-ignore
   if (data.id !== socket.id)
     handlingTypingIndicator();
 });
 
 socket.on('server-send', (data) => {
-  console.log(data === socket.id);
   // prettier-ignore
   if (data.id === socket.id)
     appendMessage(data.message, 'sent')
