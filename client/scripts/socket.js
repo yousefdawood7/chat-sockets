@@ -6,7 +6,7 @@ import {
   showTypingIndicator,
 } from './chat';
 
-export const socket = io(process.env.APP_URL ?? 'http://localhost:3000');
+export const socket = io(process.env.SERVER_APP_URL ?? 'http://localhost:3000');
 
 let id;
 const handlingTypingIndicator = function () {

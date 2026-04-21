@@ -9,7 +9,7 @@ const server = createServer(app);
 
 export const io = new Server(server, {
   cors: {
-    origin: process.env.APP_URL ?? 'http://localhost:1234',
+    origin: process.env.CLIENT_APP_URL ?? 'http://localhost:1234',
     methods: ['GET', 'POST'],
   },
 });
