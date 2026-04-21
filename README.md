@@ -12,6 +12,8 @@
 
 <p align="center">
     A minimal real-time chat demo using Socket.IO, TypeScript (server), and a small Parcel client.
+    <br />
+    <a href="https://chat-sockets.yousefdawood.me">Live Demo</a>
 </p>
 
 ## Features
