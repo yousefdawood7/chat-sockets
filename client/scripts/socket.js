@@ -3,6 +3,7 @@ import {
   addIncomingMessage,
   appendMessage,
   hideTypingIndicator,
+  scrollToBottom,
   showTypingIndicator,
 } from './chat';
 
@@ -24,8 +25,11 @@ socket.on('connect', () => {});
 
 socket.on('server-typing', (data) => {
   // prettier-ignore
-  if (data.id !== socket.id)
-    handlingTypingIndicator();
+  if (data.id === socket.id)
+    return;
+
+  handlingTypingIndicator();
+  scrollToBottom();
 });
 
 socket.on('server-send', (data) => {
@@ -36,4 +40,6 @@ socket.on('server-send', (data) => {
   // prettier-ignore
   if (data.id !== socket.id)
     addIncomingMessage(data.message);
+
+  scrollToBottom();
 });

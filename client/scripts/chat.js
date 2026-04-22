@@ -42,15 +42,12 @@ function handleSend() {
   messageInput.value = '';
   messageInput.style.height = 'auto';
   sendBtn.disabled = true;
-
-  scrollToBottom();
 }
 
 export function addIncomingMessage(text) {
   removeEmptyState();
   hideTypingIndicator();
   appendMessage(text, 'received');
-  scrollToBottom();
 }
 
 export function showTypingIndicator() {
@@ -60,7 +57,6 @@ export function showTypingIndicator() {
   typingEl.innerHTML =
     '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
   chatMessages.appendChild(typingEl);
-  scrollToBottom();
 }
 
 export function hideTypingIndicator() {
@@ -98,7 +94,7 @@ function formatTime(date) {
   return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
-function scrollToBottom() {
+export function scrollToBottom() {
   requestAnimationFrame(() => {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   });
