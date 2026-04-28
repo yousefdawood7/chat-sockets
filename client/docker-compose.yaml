@@ -1,0 +1,3 @@
+services:
+  sockets-client:
+    build: .

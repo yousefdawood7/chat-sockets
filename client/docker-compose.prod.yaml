@@ -1,0 +1,8 @@
+services:
+  sockets-client:
+    restart: always
+    build:
+      context: .
+      target: build
+    ports:
+      - 3000:3000
