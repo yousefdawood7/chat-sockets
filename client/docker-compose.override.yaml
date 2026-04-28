@@ -1,0 +1,12 @@
+services:
+  sockets-client:
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      target: dev
+    ports:
+      - 3000:1234
+    volumes:
+      - .:/app
+      - /app/node_modules
