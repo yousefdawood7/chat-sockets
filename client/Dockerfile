@@ -16,7 +16,7 @@ FROM base AS dev
 
 CMD [ "pnpm", "start" ]
 
-FROM base AS build
+FROM base AS builder
 
 EXPOSE 3000
 
@@ -26,11 +26,8 @@ RUN pnpm build
 
 CMD ["serve", "dist"]
 
+FROM nginx:alpine AS prod
 
+EXPOSE 80
 
-
-
-
-
-
-
+COPY --from=builder /app/dist /usr/share/nginx/html
