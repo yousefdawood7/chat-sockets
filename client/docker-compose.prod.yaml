@@ -3,6 +3,6 @@ services:
     restart: always
     build:
       context: .
-      target: build
+      target: prod
     ports:
-      - 3000:3000
+      - 8080:80
