@@ -1,0 +1,15 @@
+language: node_js
+
+before_install:
+  - npm i --global pnpm@latest
+  - pnpm config set store-dir ~/.pnpm-store
+
+install:
+  - pnpm ci
+
+script:
+  - pnpm build
+
+cache:
+  directories:
+    - ~/.pnpm-store
